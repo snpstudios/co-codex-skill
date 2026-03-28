@@ -23,7 +23,7 @@ cd /path/to/co-codex-skill
 npm run install:local
 ```
 
-This installs the `co-codex` skill, the local agent installer, and a sample config file.
+This installs the `co-codex` skill, the local agent installer, the local launcher, and a sample config file.
 
 ## Config
 

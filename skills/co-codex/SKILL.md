@@ -9,21 +9,16 @@ Use this skill when the user wants a phone-ready monitoring link for the local C
 
 ## What to run
 
-If the local agent binary is missing, install it first:
+Use the local launcher:
 
 ```bash
-"$HOME/.codex/bin/co-codex-agent-install"
-```
-
-Then return the device-scoped mobile URL:
-
-```bash
-"$HOME/.codex/bin/co-codex-agent" ensure
+"$HOME/.codex/bin/co-codex"
 ```
 
 That command will:
 
-- read `RELAY_AGENT_KEY` from the environment, or from `~/.codex/co-codex.config.json`
+- install `co-codex-agent` when needed
+- read config from `~/.codex/co-codex.config.json`
 - start or reconnect the local agent
 - wait until the relay has issued a device-scoped mobile URL
 - print only the resulting URL
