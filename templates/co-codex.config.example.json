@@ -1,7 +1,7 @@
 {
   "relayAgentKey": "replace-with-your-agent-key",
   "relayUrl": "https://worker.aipage.asia",
+  "default_pro_path": "/Users/yourname/Projects/your-project",
   "port": 4317,
   "allowRemoteInject": false
 }
-

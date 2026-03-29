@@ -31,6 +31,7 @@ PY
 
 RELAY_AGENT_KEY="${RELAY_AGENT_KEY:-$(read_config relayAgentKey)}"
 RELAY_URL="${RELAY_URL:-$(read_config relayUrl)}"
+DEFAULT_PRO_PATH="${DEFAULT_PRO_PATH:-$(read_config default_pro_path)}"
 PORT="${PORT:-$(read_config port)}"
 BRIDGE_TOKEN="${BRIDGE_TOKEN:-$(read_config bridgeToken)}"
 ALLOW_REMOTE_INJECT="${ALLOW_REMOTE_INJECT:-$(read_config allowRemoteInject)}"
@@ -85,7 +86,7 @@ if [ -n "$stale_pid" ]; then
 fi
 
 (
-  export HOME CODEX_HOME CONFIG_PATH PORT BRIDGE_TOKEN RELAY_URL RELAY_AGENT_KEY RELAY_DEVICE_NAME ALLOW_REMOTE_INJECT
+  export HOME CODEX_HOME CONFIG_PATH PORT BRIDGE_TOKEN RELAY_URL RELAY_AGENT_KEY RELAY_DEVICE_NAME ALLOW_REMOTE_INJECT DEFAULT_PRO_PATH
   cd "$CODEX_HOME/bin"
   nohup "$AGENT" serve </dev/null >/dev/null 2>&1 &
 ) >/dev/null 2>&1

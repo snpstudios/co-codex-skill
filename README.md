@@ -37,15 +37,19 @@ Minimum example:
 
 ```json
 {
-  "relayAgentKey": "agent-secret"
+  "relayAgentKey": "agent-secret",
+  "default_pro_path": "/Users/you/Projects/your-default-project"
 }
 ```
+
+`default_pro_path` is the default project path used by the phone page when creating a new thread.
 
 If you want the phone page to send follow-up messages back into the local Codex session, enable:
 
 ```json
 {
   "relayAgentKey": "agent-secret",
+  "default_pro_path": "/Users/you/Projects/your-default-project",
   "allowRemoteInject": true
 }
 ```

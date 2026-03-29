@@ -37,15 +37,19 @@ npm run install:local
 
 ```json
 {
-  "relayAgentKey": "agent-secret"
+  "relayAgentKey": "agent-secret",
+  "default_pro_path": "/Users/you/Projects/your-default-project"
 }
 ```
+
+`default_pro_path` 用来指定“新线程”默认的项目路径，手机端创建新线程时会优先带出这个值。
 
 如果你希望手机端不仅能看，还能把 follow-up 发回本地 Codex，会话配置里还要打开：
 
 ```json
 {
   "relayAgentKey": "agent-secret",
+  "default_pro_path": "/Users/you/Projects/your-default-project",
   "allowRemoteInject": true
 }
 ```

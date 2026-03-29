@@ -39,7 +39,8 @@ If the environment does not already provide `RELAY_AGENT_KEY`, this skill expect
 
 ```json
 {
-  "relayAgentKey": "agent-secret"
+  "relayAgentKey": "agent-secret",
+  "default_pro_path": "/Users/you/Projects/your-default-project"
 }
 ```
 
@@ -56,5 +57,6 @@ at:
 - Viewing progress from the phone works by default.
 - Sending follow-up messages back into the local Codex session requires `allowRemoteInject` to be enabled in `~/.codex/co-codex.config.json`.
 - Keep `allowRemoteInject` off if the user only wants monitoring.
+- `default_pro_path` in `~/.codex/co-codex.config.json` is used as the default project path when the phone page creates a new thread.
 - For non-active threads, co-codex uses background injection mode. The message still works, but Codex Desktop may need a restart before that thread shows the new turns in the UI.
 - If the user asks to keep working while they are away, this skill only returns the monitoring or control URL. It does not by itself change the Codex task.
