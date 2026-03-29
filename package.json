@@ -1,6 +1,6 @@
 {
   "name": "co-codex-skill",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Codex skill launcher for co-codex, with mobile-entry setup and agent bootstrap.",
   "scripts": {
