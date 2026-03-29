@@ -41,6 +41,17 @@ npm run install:local
 }
 ```
 
+如果你希望手机端不仅能看，还能把 follow-up 发回本地 Codex，会话配置里还要打开：
+
+```json
+{
+  "relayAgentKey": "agent-secret",
+  "allowRemoteInject": true
+}
+```
+
+如果你只想在手机上看进度，不需要回发消息，就不要打开 `allowRemoteInject`。
+
 ## 在 Codex 里使用
 
 安装完成后，直接对 Codex 说：

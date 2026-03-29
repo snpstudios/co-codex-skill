@@ -41,6 +41,17 @@ Minimum example:
 }
 ```
 
+If you want the phone page to send follow-up messages back into the local Codex session, enable:
+
+```json
+{
+  "relayAgentKey": "agent-secret",
+  "allowRemoteInject": true
+}
+```
+
+If you only want to monitor progress from the phone, leave `allowRemoteInject` disabled.
+
 ## In Codex
 
 After installation, ask Codex for the mobile entry in plain language, for example:

@@ -52,4 +52,7 @@ at:
 ## Notes
 
 - The URL is device-scoped. It should only open the current machine's co-codex view.
+- Viewing progress from the phone works by default.
+- Sending follow-up messages back into the local Codex session requires `allowRemoteInject` to be enabled in `~/.codex/co-codex.config.json`.
+- Keep `allowRemoteInject` off if the user only wants monitoring.
 - If the user asks to keep working while they are away, this skill only returns the monitoring or control URL. It does not by itself change the Codex task.
