@@ -19,7 +19,7 @@ That command will:
 
 - install `co-codex-agent` when needed
 - read config from `~/.codex/co-codex.config.json`
-- start or reconnect the local agent
+- start or reconnect the local agent and keep it running in the background
 - wait until the relay has issued a device-scoped mobile URL
 - print only the resulting URL
 
@@ -52,7 +52,9 @@ at:
 ## Notes
 
 - The URL is device-scoped. It should only open the current machine's co-codex view.
+- The local `co-codex-agent` must stay resident in the background. If the agent exits, the phone page will stop updating and command delivery will fail.
 - Viewing progress from the phone works by default.
 - Sending follow-up messages back into the local Codex session requires `allowRemoteInject` to be enabled in `~/.codex/co-codex.config.json`.
 - Keep `allowRemoteInject` off if the user only wants monitoring.
+- For non-active threads, co-codex uses background injection mode. The message still works, but Codex Desktop may need a restart before that thread shows the new turns in the UI.
 - If the user asks to keep working while they are away, this skill only returns the monitoring or control URL. It does not by itself change the Codex task.

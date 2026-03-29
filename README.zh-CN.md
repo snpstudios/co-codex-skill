@@ -13,7 +13,7 @@
 安装后，这个 skill 会：
 
 1. 在需要时自动安装 `co-codex-agent`
-2. 启动或重连本地 agent
+2. 启动或重连本地 agent，并让它常驻后台
 3. 返回当前设备专属的手机访问 URL，入口来自 `worker.aipage.asia`
 
 ## 本地安装
@@ -51,6 +51,12 @@ npm run install:local
 ```
 
 如果你只想在手机上看进度，不需要回发消息，就不要打开 `allowRemoteInject`。
+
+## 行为说明
+
+- `co-codex-agent` 需要常驻后台。只要 agent 退出，手机端就会停止同步，也无法继续发命令。
+- 当前激活线程继续走桌面 UI 交互。
+- 非激活线程会走后台注入模式。消息仍然会生效，但该线程在 Codex Desktop 里的新增对话，可能要重启后才会显示出来。
 
 ## 在 Codex 里使用
 

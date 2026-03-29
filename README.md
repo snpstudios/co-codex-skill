@@ -13,7 +13,7 @@ Use it when you want a workflow like:
 After installation, the skill can:
 
 1. install `co-codex-agent` on the current machine when needed
-2. start or reconnect the local agent
+2. start or reconnect the local agent and keep it running in the background
 3. return a device-scoped mobile URL from `worker.aipage.asia`
 
 ## Local install
@@ -51,6 +51,12 @@ If you want the phone page to send follow-up messages back into the local Codex 
 ```
 
 If you only want to monitor progress from the phone, leave `allowRemoteInject` disabled.
+
+## Behavior notes
+
+- `co-codex-agent` should stay resident in the background while you are away, otherwise the phone page will stop syncing.
+- The currently active desktop thread uses focused UI interaction.
+- Non-active threads use background injection mode. Those messages still work, but Codex Desktop may need a restart before the injected turns appear in that thread's UI.
 
 ## In Codex
 
