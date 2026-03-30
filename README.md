@@ -42,6 +42,8 @@ Minimum example:
 }
 ```
 
+You can get your own `relayAgentKey` from `https://worker.aipage.asia` after signing in with GitHub.
+
 `default_pro_path` is the default project path used by the phone page when creating a new thread.
 
 If you want the phone page to send follow-up messages back into the local Codex session, enable:

@@ -50,6 +50,8 @@ at:
 ~/.codex/co-codex.config.json
 ```
 
+Users can get their own `relayAgentKey` from `https://worker.aipage.asia` after signing in with GitHub.
+
 ## Notes
 
 - The URL is device-scoped. It should only open the current machine's co-codex view.
