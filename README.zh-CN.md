@@ -61,6 +61,7 @@ npm run install:local
 ## 行为说明
 
 - `co-codex-agent` 需要常驻后台。只要 agent 退出，手机端就会停止同步，也无法继续发命令。
+- 如果你希望手机端把 follow-up 回发到本地 Codex Desktop，macOS 还需要给本地终端 / launcher 对应的进程授予辅助功能这类系统操作权限。没有这类权限时，手机端查看进度仍然可用，但回发消息到桌面 UI 可能失败。
 - 当前激活线程继续走桌面 UI 交互。
 - 非激活线程会走后台注入模式。消息仍然会生效，但该线程在 Codex Desktop 里的新增对话，可能要重启后才会显示出来。
 - 默认共享的 relay key 有设备数量上限。如果启动时提示共享 key 已满，请打开 `https://worker.aipage.asia` 获取你自己的免费 relay key，然后替换 `~/.codex/co-codex.config.json` 里的 `relayAgentKey`。

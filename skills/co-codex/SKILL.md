@@ -58,6 +58,7 @@ Users can get their own `relayAgentKey` from `https://worker.aipage.asia` after 
 - The local `co-codex-agent` must stay resident in the background. If the agent exits, the phone page will stop updating and command delivery will fail.
 - Viewing progress from the phone works by default.
 - Sending follow-up messages back into the local Codex session requires `allowRemoteInject` to be enabled in `~/.codex/co-codex.config.json`.
+- For desktop UI interaction, macOS also needs to grant the local terminal / launcher process Accessibility-style system control permission. Without that permission, monitoring can still work, but remote message injection may fail.
 - Keep `allowRemoteInject` off if the user only wants monitoring.
 - `default_pro_path` in `~/.codex/co-codex.config.json` is used as the default project path when the phone page creates a new thread.
 - For non-active threads, co-codex uses background injection mode. The message still works, but Codex Desktop may need a restart before that thread shows the new turns in the UI.
