@@ -61,6 +61,7 @@ npm run install:local
 - `co-codex-agent` 需要常驻后台。只要 agent 退出，手机端就会停止同步，也无法继续发命令。
 - 当前激活线程继续走桌面 UI 交互。
 - 非激活线程会走后台注入模式。消息仍然会生效，但该线程在 Codex Desktop 里的新增对话，可能要重启后才会显示出来。
+- 默认共享的 relay key 有设备数量上限。如果启动时提示共享 key 已满，请打开 `https://worker.aipage.asia` 获取你自己的免费 relay key，然后替换 `~/.codex/co-codex.config.json` 里的 `relayAgentKey`。
 
 ## 在 Codex 里使用
 

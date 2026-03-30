@@ -59,4 +59,5 @@ at:
 - Keep `allowRemoteInject` off if the user only wants monitoring.
 - `default_pro_path` in `~/.codex/co-codex.config.json` is used as the default project path when the phone page creates a new thread.
 - For non-active threads, co-codex uses background injection mode. The message still works, but Codex Desktop may need a restart before that thread shows the new turns in the UI.
+- If the shared relay key has reached its device limit, tell the user to open `https://worker.aipage.asia` and get their own free relay key, then update `relayAgentKey` in `~/.codex/co-codex.config.json`.
 - If the user asks to keep working while they are away, this skill only returns the monitoring or control URL. It does not by itself change the Codex task.

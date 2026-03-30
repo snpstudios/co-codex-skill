@@ -61,6 +61,7 @@ If you only want to monitor progress from the phone, leave `allowRemoteInject` d
 - `co-codex-agent` should stay resident in the background while you are away, otherwise the phone page will stop syncing.
 - The currently active desktop thread uses focused UI interaction.
 - Non-active threads use background injection mode. Those messages still work, but Codex Desktop may need a restart before the injected turns appear in that thread's UI.
+- The default shared relay key is capacity-limited. If the launcher tells you the shared key is full, open `https://worker.aipage.asia` and request your own free relay key, then replace `relayAgentKey` in `~/.codex/co-codex.config.json`.
 
 ## In Codex
 
