@@ -21,7 +21,7 @@ key = sys.argv[2]
 data = json.loads(config_path.read_text(encoding="utf-8"))
 value = data.get(key, "")
 if isinstance(value, bool):
-    print("true" if value else "false")
+    print("1" if value else "0")
 elif value is None:
     print("")
 else:
