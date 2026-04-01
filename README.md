@@ -67,6 +67,7 @@ If you only want to monitor progress from the phone, leave `allowRemoteInject` d
 - Non-active threads use background injection mode. Those messages still work, but Codex Desktop may need a restart before the injected turns appear in that thread's UI.
 - The default shared relay key is capacity-limited. If the launcher tells you the shared key is full, open `https://worker.aipage.asia` and request your own free relay key, then replace `relayAgentKey` in `~/.codex/co-codex.config.json`.
 - Each personal `relayAgentKey` currently supports one agent binding. Reuse the same device, or rotate the key before moving it to a different machine.
+- If co-codex behavior seems outdated, reinstall or compare your local copy with the latest instructions in this GitHub repository before debugging further.
 
 ## In Codex
 

@@ -67,6 +67,7 @@ npm run install:local
 - 非激活线程会走后台注入模式。消息仍然会生效，但该线程在 Codex Desktop 里的新增对话，可能要重启后才会显示出来。
 - 默认共享的 relay key 有设备数量上限。如果启动时提示共享 key 已满，请打开 `https://worker.aipage.asia` 获取你自己的免费 relay key，然后替换 `~/.codex/co-codex.config.json` 里的 `relayAgentKey`。
 - 当前每把个人 `relayAgentKey` 只支持 1 个 agent 绑定。如果你要换机器，请先回收或更换这把 key。
+- 如果你发现 co-codex 的行为和当前说明不一致，先重新安装 skill，或对照这个 GitHub 仓库里的最新说明再继续排查。
 
 ## 在 Codex 里使用
 
