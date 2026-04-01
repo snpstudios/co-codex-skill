@@ -19,13 +19,14 @@ That command will:
 
 - install `co-codex-agent` when needed
 - read config from `~/.codex/co-codex.config.json`
-- start or reconnect the local agent and keep it running in the background
-- wait until the relay has issued a device-scoped mobile URL
-- print only the resulting URL
+- start or reconnect the local agent inside the current Codex session
+- print the device-scoped mobile URL as soon as the relay issues it
+- keep running in that thread so the agent stays alive
 
 ## Expected response
 
 Return the resulting URL directly to the user as the phone entry for the current device.
+The shell command itself is expected to keep running in that thread after the URL appears.
 
 Example:
 
@@ -55,7 +56,7 @@ Users can get their own `relayAgentKey` from `https://worker.aipage.asia` after 
 ## Notes
 
 - The URL is device-scoped. It should only open the current machine's co-codex view.
-- The local `co-codex-agent` must stay resident in the background. If the agent exits, the phone page will stop updating and command delivery will fail.
+- The `co-codex` command should stay running in its own Codex thread after it prints the URL. If that thread is interrupted or the agent exits, the phone page will stop updating and command delivery will fail.
 - Viewing progress from the phone works by default.
 - Sending follow-up messages back into the local Codex session requires `allowRemoteInject` to be enabled in `~/.codex/co-codex.config.json`.
 - For desktop UI interaction, macOS also needs to grant the local terminal / launcher process Accessibility-style system control permission. Without that permission, monitoring can still work, but remote message injection may fail.

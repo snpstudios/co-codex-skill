@@ -85,23 +85,25 @@ if [ -n "$stale_pid" ]; then
   sleep 1
 fi
 
-(
-  export HOME CODEX_HOME CONFIG_PATH PORT BRIDGE_TOKEN RELAY_URL RELAY_AGENT_KEY RELAY_DEVICE_NAME ALLOW_REMOTE_INJECT DEFAULT_PRO_PATH
-  cd "$CODEX_HOME/bin"
-  nohup "$AGENT" serve </dev/null >/dev/null 2>&1 &
-) >/dev/null 2>&1
+export HOME CODEX_HOME CONFIG_PATH PORT BRIDGE_TOKEN RELAY_URL RELAY_AGENT_KEY RELAY_DEVICE_NAME ALLOW_REMOTE_INJECT DEFAULT_PRO_PATH
+cd "$CODEX_HOME/bin"
 
-deadline=$((SECONDS + WAIT_SECONDS))
-while [ "$SECONDS" -lt "$deadline" ]; do
-  if meta="$(read_meta 2>/dev/null || true)" && [ -n "$meta" ]; then
-    mobile_url="$(read_mobile_url "$meta")"
-    if [ -n "$mobile_url" ]; then
-      echo "$mobile_url"
-      exit 0
-    fi
-  fi
-  sleep "$POLL_INTERVAL"
+LOG_DIR="$CODEX_HOME/logs"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/co-codex-agent.log"
+
+url_seen=0
+
+"$AGENT" serve 2>>"$LOG_FILE" | while IFS= read -r line; do
+  case "$line" in
+    CO_CODEX_MOBILE_URL=*)
+      mobile_url="${line#CO_CODEX_MOBILE_URL=}"
+      if [ "$url_seen" -eq 0 ] && [ -n "$mobile_url" ]; then
+        echo "$mobile_url"
+        url_seen=1
+      fi
+      ;;
+    *)
+      ;;
+  esac
 done
-
-echo "Timed out waiting for the co-codex mobile URL." >&2
-exit 1

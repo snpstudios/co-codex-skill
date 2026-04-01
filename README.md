@@ -13,8 +13,8 @@ Use it when you want a workflow like:
 After installation, the skill can:
 
 1. install `co-codex-agent` on the current machine when needed
-2. start or reconnect the local agent and keep it running in the background
-3. return a device-scoped mobile URL from `worker.aipage.asia`
+2. start or reconnect the local agent inside the current Codex session
+3. print a device-scoped mobile URL from `worker.aipage.asia` as soon as it is ready
 
 ## Local install
 
@@ -60,7 +60,8 @@ If you only want to monitor progress from the phone, leave `allowRemoteInject` d
 
 ## Behavior notes
 
-- `co-codex-agent` should stay resident in the background while you are away, otherwise the phone page will stop syncing.
+- Keep the Codex thread that launched `co-codex` open. That long-running session is what keeps the local agent alive.
+- If that thread is interrupted or the agent exits, the phone page will stop syncing.
 - If you want phone-originated follow-up messages to control Codex Desktop, macOS must allow the local terminal / launcher process to use Accessibility-style system control permissions. Without that permission, monitoring still works, but remote message injection into the desktop UI can fail.
 - The currently active desktop thread uses focused UI interaction.
 - Non-active threads use background injection mode. Those messages still work, but Codex Desktop may need a restart before the injected turns appear in that thread's UI.

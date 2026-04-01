@@ -13,8 +13,8 @@
 安装后，这个 skill 会：
 
 1. 在需要时自动安装 `co-codex-agent`
-2. 启动或重连本地 agent，并让它常驻后台
-3. 返回当前设备专属的手机访问 URL，入口来自 `worker.aipage.asia`
+2. 在当前 Codex 会话里启动或重连本地 agent
+3. 在手机入口就绪后立刻输出当前设备专属的访问 URL，入口来自 `worker.aipage.asia`
 
 ## 本地安装
 
@@ -60,7 +60,8 @@ npm run install:local
 
 ## 行为说明
 
-- `co-codex-agent` 需要常驻后台。只要 agent 退出，手机端就会停止同步，也无法继续发命令。
+- 启动 `co-codex` 的那个 Codex 线程需要保持打开。这条长会话本身就是本地 agent 的存活载体。
+- 只要该线程被打断，或者 agent 退出，手机端就会停止同步，也无法继续发命令。
 - 如果你希望手机端把 follow-up 回发到本地 Codex Desktop，macOS 还需要给本地终端 / launcher 对应的进程授予辅助功能这类系统操作权限。没有这类权限时，手机端查看进度仍然可用，但回发消息到桌面 UI 可能失败。
 - 当前激活线程继续走桌面 UI 交互。
 - 非激活线程会走后台注入模式。消息仍然会生效，但该线程在 Codex Desktop 里的新增对话，可能要重启后才会显示出来。
